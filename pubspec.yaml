@@ -13,15 +13,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  date_range_picker: ^1.0.6
+#  date_range_picker: ^1.0.6
   datetime_picker_formfield: ^1.0.0
   dropdown_search: ^0.4.8
   flutter_colorpicker: ^0.3.4
   flutter_chips_input: ^1.9.5
   flutter_datetime_picker: ^1.4.0
-  flutter_touch_spin: ^1.0.1
+#  flutter_touch_spin: ^1.0.1
   flutter_typeahead: ^1.9.1
-  intl: ^0.16.1
+#  intl: ^0.16.1
   rating_bar: ^0.2.0
   signature: ^3.2.0
   validators: ^2.0.1
@@ -32,7 +32,7 @@ dev_dependencies:
 
   # flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/localization/form_builder_localizations.dart
   # flutter pub pub run intl_translation:generate_from_arb --output-dir=lib/l10n --no-use-deferred-loading lib/localization/form_builder_localizations.dart lib/l10n/intl_*.arb
-  intl_translation: ^0.17.10+1
+#  intl_translation: ^0.17.10+1
   pedantic: ^1.9.2
 
 flutter:

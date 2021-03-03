@@ -34,12 +34,7 @@ class CompleteFormState extends State<CompleteForm> {
               key: _formKey,
               // enabled: false,
               autovalidateMode: AutovalidateMode.disabled,
-              initialValue: {
-                'movie_rating': 5,
-                'best_language': 'Dart',
-                'age': '13',
-                'gender': 'Male'
-              },
+              initialValue: {'movie_rating': 5, 'best_language': 'Dart', 'age': '13', 'gender': 'Male'},
               skipDisabled: true,
               child: Column(
                 children: <Widget>[
@@ -58,16 +53,11 @@ class CompleteFormState extends State<CompleteForm> {
                     initialValue: ['Test', 'Test 1', 'Test 2'],
                     maxChips: 3,
                     options: [
-                      FormBuilderFieldOption(
-                          value: 'Test', child: Text('Test')),
-                      FormBuilderFieldOption(
-                          value: 'Test 1', child: Text('Test 1')),
-                      FormBuilderFieldOption(
-                          value: 'Test 2', child: Text('Test 2')),
-                      FormBuilderFieldOption(
-                          value: 'Test 3', child: Text('Test 3')),
-                      FormBuilderFieldOption(
-                          value: 'Test 4', child: Text('Test 4')),
+                      FormBuilderFieldOption(value: 'Test', child: Text('Test')),
+                      FormBuilderFieldOption(value: 'Test 1', child: Text('Test 1')),
+                      FormBuilderFieldOption(value: 'Test 2', child: Text('Test 2')),
+                      FormBuilderFieldOption(value: 'Test 3', child: Text('Test 3')),
+                      FormBuilderFieldOption(value: 'Test 4', child: Text('Test 4')),
                     ],
                   ),
                   FormBuilderChoiceChip(
@@ -76,16 +66,11 @@ class CompleteFormState extends State<CompleteForm> {
                       labelText: 'Select an option',
                     ),
                     options: [
-                      FormBuilderFieldOption(
-                          value: 'Test', child: Text('Test')),
-                      FormBuilderFieldOption(
-                          value: 'Test 1', child: Text('Test 1')),
-                      FormBuilderFieldOption(
-                          value: 'Test 2', child: Text('Test 2')),
-                      FormBuilderFieldOption(
-                          value: 'Test 3', child: Text('Test 3')),
-                      FormBuilderFieldOption(
-                          value: 'Test 4', child: Text('Test 4')),
+                      FormBuilderFieldOption(value: 'Test', child: Text('Test')),
+                      FormBuilderFieldOption(value: 'Test 1', child: Text('Test 1')),
+                      FormBuilderFieldOption(value: 'Test 2', child: Text('Test 2')),
+                      FormBuilderFieldOption(value: 'Test 3', child: Text('Test 3')),
+                      FormBuilderFieldOption(value: 'Test 4', child: Text('Test 4')),
                     ],
                   ),
                   FormBuilderColorPickerField(
@@ -104,19 +89,10 @@ class CompleteFormState extends State<CompleteForm> {
                       if (query.isNotEmpty) {
                         var lowercaseQuery = query.toLowerCase();
                         return contacts.where((profile) {
-                          return profile.name
-                                  .toLowerCase()
-                                  .contains(query.toLowerCase()) ||
-                              profile.email
-                                  .toLowerCase()
-                                  .contains(query.toLowerCase());
+                          return profile.name.toLowerCase().contains(query.toLowerCase()) ||
+                              profile.email.toLowerCase().contains(query.toLowerCase());
                         }).toList(growable: false)
-                          ..sort((a, b) => a.name
-                              .toLowerCase()
-                              .indexOf(lowercaseQuery)
-                              .compareTo(b.name
-                                  .toLowerCase()
-                                  .indexOf(lowercaseQuery)));
+                          ..sort((a, b) => a.name.toLowerCase().indexOf(lowercaseQuery).compareTo(b.name.toLowerCase().indexOf(lowercaseQuery)));
                       } else {
                         return const <Contact>[];
                       }
@@ -166,18 +142,18 @@ class CompleteFormState extends State<CompleteForm> {
                     pickerType: PickerType.cupertino,
                     locale: Locale.fromSubtags(languageCode: 'es'),
                   ),
-                  FormBuilderDateRangePicker(
-                    name: 'date_range',
-                    firstDate: DateTime(1970),
-                    lastDate: DateTime(2030),
-                    format: DateFormat('yyyy-MM-dd'),
-                    onChanged: _onChanged,
-                    decoration: const InputDecoration(
-                      labelText: 'Date Range',
-                      helperText: 'Helper text',
-                      hintText: 'Hint text',
-                    ),
-                  ),
+                  // FormBuilderDateRangePicker(
+                  //   name: 'date_range',
+                  //   firstDate: DateTime(1970),
+                  //   lastDate: DateTime(2030),
+                  //   format: DateFormat('yyyy-MM-dd'),
+                  //   onChanged: _onChanged,
+                  //   decoration: const InputDecoration(
+                  //     labelText: 'Date Range',
+                  //     helperText: 'Helper text',
+                  //     hintText: 'Hint text',
+                  //   ),
+                  // ),
                   FormBuilderSlider(
                     name: 'slider',
                     validator: FormBuilderValidators.compose([
@@ -235,8 +211,7 @@ class CompleteFormState extends State<CompleteForm> {
                     validator: FormBuilderValidators.equal(
                       context,
                       true,
-                      errorText:
-                          'You must accept terms and conditions to continue',
+                      errorText: 'You must accept terms and conditions to continue',
                     ),
                   ),
                   FormBuilderTextField(
@@ -244,14 +219,11 @@ class CompleteFormState extends State<CompleteForm> {
                     name: 'age',
                     decoration: InputDecoration(
                       labelText: 'Age',
-                      suffixIcon: _ageHasError
-                          ? const Icon(Icons.error, color: Colors.red)
-                          : const Icon(Icons.check, color: Colors.green),
+                      suffixIcon: _ageHasError ? const Icon(Icons.error, color: Colors.red) : const Icon(Icons.check, color: Colors.green),
                     ),
                     onChanged: (val) {
                       setState(() {
-                        _ageHasError =
-                            !_formKey.currentState.fields['age'].validate();
+                        _ageHasError = !_formKey.currentState.fields['age'].validate();
                       });
                     },
                     // valueTransformer: (text) => num.tryParse(text),
@@ -269,15 +241,12 @@ class CompleteFormState extends State<CompleteForm> {
                     name: 'gender',
                     decoration: InputDecoration(
                       labelText: 'Gender',
-                      suffix: _genderHasError
-                          ? const Icon(Icons.error)
-                          : const Icon(Icons.check),
+                      suffix: _genderHasError ? const Icon(Icons.error) : const Icon(Icons.check),
                     ),
                     // initialValue: 'Male',
                     allowClear: true,
                     hint: Text('Select Gender'),
-                    validator: FormBuilderValidators.compose(
-                        [FormBuilderValidators.required(context)]),
+                    validator: FormBuilderValidators.compose([FormBuilderValidators.required(context)]),
                     items: genderOptions
                         .map((gender) => DropdownMenuItem(
                               value: gender,
@@ -287,8 +256,7 @@ class CompleteFormState extends State<CompleteForm> {
                     onChanged: (val) {
                       print(val);
                       setState(() {
-                        _genderHasError =
-                            !_formKey.currentState.fields['gender'].validate();
+                        _genderHasError = !_formKey.currentState.fields['gender'].validate();
                       });
                     },
                   ),
@@ -311,11 +279,7 @@ class CompleteFormState extends State<CompleteForm> {
                         return allCountries.where((country) {
                           return country.toLowerCase().contains(lowercaseQuery);
                         }).toList(growable: false)
-                          ..sort((a, b) => a
-                              .toLowerCase()
-                              .indexOf(lowercaseQuery)
-                              .compareTo(
-                                  b.toLowerCase().indexOf(lowercaseQuery)));
+                          ..sort((a, b) => a.toLowerCase().indexOf(lowercaseQuery).compareTo(b.toLowerCase().indexOf(lowercaseQuery)));
                       } else {
                         return allCountries;
                       }
@@ -327,8 +291,7 @@ class CompleteFormState extends State<CompleteForm> {
                     ),
                     name: 'best_language',
                     onChanged: _onChanged,
-                    validator: FormBuilderValidators.compose(
-                        [FormBuilderValidators.required(context)]),
+                    validator: FormBuilderValidators.compose([FormBuilderValidators.required(context)]),
                     options: ['Dart', 'Kotlin', 'Java', 'Swift', 'Objective-C']
                         .map((lang) => FormBuilderFieldOption(
                               value: lang,
@@ -349,8 +312,7 @@ class CompleteFormState extends State<CompleteForm> {
                               value: number,
                               child: Text(
                                 number.toString(),
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold),
+                                style: const TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ))
                         .toList(),
@@ -362,18 +324,17 @@ class CompleteFormState extends State<CompleteForm> {
                     initialValue: true,
                     onChanged: _onChanged,
                   ),
-                  FormBuilderTouchSpin(
-                    decoration: const InputDecoration(labelText: 'TouchSpin'),
-                    name: 'touch_spin',
-                    initialValue: 10,
-                    step: 1,
-                    iconSize: 48.0,
-                    addIcon: const Icon(Icons.arrow_right),
-                    subtractIcon: const Icon(Icons.arrow_left),
-                  ),
+                  // FormBuilderTouchSpin(
+                  //   decoration: const InputDecoration(labelText: 'TouchSpin'),
+                  //   name: 'touch_spin',
+                  //   initialValue: 10,
+                  //   step: 1,
+                  //   iconSize: 48.0,
+                  //   addIcon: const Icon(Icons.arrow_right),
+                  //   subtractIcon: const Icon(Icons.arrow_left),
+                  // ),
                   FormBuilderRating(
-                    decoration:
-                        const InputDecoration(labelText: 'Rate this form'),
+                    decoration: const InputDecoration(labelText: 'Rate this form'),
                     name: 'rate',
                     iconSize: 32.0,
                     initialValue: 1.0,
@@ -381,8 +342,7 @@ class CompleteFormState extends State<CompleteForm> {
                     onChanged: _onChanged,
                   ),
                   FormBuilderCheckboxGroup(
-                    decoration: const InputDecoration(
-                        labelText: 'The language of my people'),
+                    decoration: const InputDecoration(labelText: 'The language of my people'),
                     name: 'languages',
                     initialValue: const ['Dart'],
                     options: const [

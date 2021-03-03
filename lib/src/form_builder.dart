@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 typedef ValueTransformer<T> = dynamic Function(T value);
 
@@ -74,8 +75,7 @@ class FormBuilder extends StatefulWidget {
     this.enabled = true,
   }) : super(key: key);
 
-  static FormBuilderState of(BuildContext context) =>
-      context.findAncestorStateOfType<FormBuilderState>();
+  static FormBuilderState of(BuildContext context) => context.findAncestorStateOfType<FormBuilderState>();
 
   @override
   FormBuilderState createState() => FormBuilderState();
@@ -95,6 +95,13 @@ class FormBuilderState extends State<FormBuilder> {
   Map<String, dynamic> get initialValue => widget.initialValue;
 
   Map<String, FormBuilderFieldState> get fields => _fields;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    initializeDateFormatting();
+    super.initState();
+  }
 
   /*
     bool get hasError => _fields.values.map((e) => e.hasError).firstWhere((element) => element == false, orElse: () => true);

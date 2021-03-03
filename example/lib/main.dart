@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'home_page.dart';
 
@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       localizationsDelegates: [
         FormBuilderLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+        // GlobalMaterialLocalizations.delegate,
+        // GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: [
         Locale('en', ''),
